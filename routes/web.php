@@ -13,6 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', function(){
+    // return 'Hola mundo!';
+    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+    
 });
+
+Route::get( 'contacto', [ 'as' => 'contactos', function(){
+    return 'Sección de contactos';
+}]);
+
+Route::get( 'saludos/{nombre?}', function( $nombre = 'invitado' ){
+    return "Hola $nombre";
+})->where('nombre', '[a-zA-ZñÑ]+');
