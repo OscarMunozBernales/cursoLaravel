@@ -4,7 +4,7 @@ El archivos de las rutas se encuentra en la carpeta
 <pre> routes/web.php </pre>
 
 Las rutas en laravel se definien de la siguiente forma
-```php
+```PHP
 Route::get('/', function(){
     echo '<a href="'. route('contactos') .'">Contactanos</a><br>'; 
     // OCUPAMOS LA FUNCION ROUTE PARA LLAMAR A LA RUTA POR SU NOMBRE 'AS'
@@ -30,3 +30,4 @@ Route::get( 'saludos/{nombre?}', function( $nombre = 'invitado' ){
 
 
 ```
+

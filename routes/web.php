@@ -17,26 +17,18 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function(){
-    // return 'Hola mundo!';
-    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
-    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
-    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
-    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
-    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
-    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
-    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
-    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
-    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
-    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
-    echo '<a href="'. route('contactos') .'">Contactanos</a><br>';
+Route::get('/', [ 'as' => 'home', function(){
+    return view( 'home' );
     
-});
-
-Route::get( 'contacto', [ 'as' => 'contactos', function(){
-    return 'Sección de contactos';
 }]);
 
-Route::get( 'saludos/{nombre?}', function( $nombre = 'invitado' ){
-    return "Hola $nombre";
-})->where('nombre', '[a-zA-ZñÑ]+');
+Route::get( 'contacto', [ 'as' => 'contactos', function(){
+    return view( 'contactos' );
+}]);
+
+Route::get( 'saludos/{nombre?}', [ 'as' => 'saludos', function( $nombre = 'invitado' ){
+    // return view( 'saludos', [ 'nombre' => $nombre ]);
+    // return view( 'saludos' )->with(['nombre' => $nombre]);
+    return view( 'saludos', compact('nombre') );
+
+}])->where('nombre', '[a-zA-ZñÑ]+');
